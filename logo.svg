@@ -1,0 +1,42 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5433FF"/>
+      <stop offset="50%" stop-color="#5167FC"/>
+      <stop offset="100%" stop-color="#1CC6FF"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#97FBD1"/>
+      <stop offset="100%" stop-color="#1CC6FF"/>
+    </linearGradient>
+  </defs>
+  <!-- Background circle -->
+  <circle cx="256" cy="256" r="220" fill="#050716"/>
+
+  <!-- Stylized mark: combination of arc + diagonal to subtly suggest an R and check/forward motion -->
+  <!-- Outer arc -->
+  <path d="M256 96
+           C 340 96 416 172 416 256
+           C 416 286 410 314 398 340" 
+        fill="none" 
+        stroke="url(#bgGrad)" 
+        stroke-width="52" 
+        stroke-linecap="round"/>
+
+  <!-- Inner arc -->
+  <path d="M256 144
+           C 320 144 372 196 372 260
+           C 372 280 368 300 360 318" 
+        fill="none" 
+        stroke="#111827" 
+        stroke-width="40" 
+        stroke-linecap="round"/>
+
+  <!-- Forward / check stroke -->
+  <path d="M210 220 L 270 320 L 360 205" 
+        fill="none" 
+        stroke="url(#accentGrad)" 
+        stroke-width="40" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"/>
+</svg>
