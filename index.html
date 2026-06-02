@@ -508,7 +508,7 @@
       overflow: hidden;
       border: 1px solid rgba(148,163,184,0.7);
       background: #020617;
-      cursor: pointer;
+      cursor: zoom-in;
       transform: translateY(0);
       transition: transform 0.1s ease-out, box-shadow 0.1s ease-out, border-color 0.1s ease-out;
     }
@@ -715,6 +715,79 @@
     .modal-backdrop.show {
       display: flex;
     }
+
+    /* Lightbox for gallery */
+    .lightbox-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15,23,42,0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 50;
+      padding: 12px;
+    }
+
+    .lightbox-inner {
+      max-width: 1100px;
+      width: 100%;
+      max-height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 8px;
+    }
+
+    .lightbox-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #e5e7eb;
+      font-size: 13px;
+    }
+
+    .lightbox-header span {
+      opacity: 0.9;
+    }
+
+    .lightbox-close {
+      border: none;
+      background: none;
+      color: #e5e7eb;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .lightbox-image-wrapper {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(148,163,184,0.8);
+      background: #020617;
+      max-height: calc(100vh - 80px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-image-wrapper img {
+      width: 100%;
+      height: auto;
+      max-height: calc(100vh - 90px);
+      object-fit: contain;
+    }
+
+    .lightbox-backdrop.show {
+      display: flex;
+    }
+
+    @media (max-width: 640px) {
+      .lightbox-inner {
+        gap: 6px;
+      }
+      .lightbox-image-wrapper img {
+        max-height: calc(100vh - 80px);
+      }
+    }
   </style>
 </head>
 <body>
@@ -888,7 +961,7 @@
         </div>
 
         <div class="gallery-grid">
-          <div class="gallery-item" onclick="scrollToDemo()">
+          <div class="gallery-item" data-image="frame1.png" data-label="Frame 1 · Meeting start">
             <img src="frame1.png" alt="Meeting start with agenda visible" loading="lazy" />
             <div class="gallery-caption">
               <span class="gallery-caption-dot"></span>
@@ -896,7 +969,7 @@
             </div>
           </div>
 
-          <div class="gallery-item" onclick="scrollToDemo()">
+          <div class="gallery-item" data-image="frame2.png" data-label="Frame 2 · Off‑agenda nudge">
             <img src="frame2.png" alt="Off‑agenda moment with AI nudge" loading="lazy" />
             <div class="gallery-caption">
               <span class="gallery-caption-dot"></span>
@@ -904,7 +977,7 @@
             </div>
           </div>
 
-          <div class="gallery-item" onclick="scrollToDemo()">
+          <div class="gallery-item" data-image="frame3.png" data-label="Frame 3 · Back on track">
             <img src="frame3.png" alt="Back on track and time re‑balanced" loading="lazy" />
             <div class="gallery-caption">
               <span class="gallery-caption-dot"></span>
@@ -912,7 +985,7 @@
             </div>
           </div>
 
-          <div class="gallery-item" onclick="scrollToDemo()">
+          <div class="gallery-item" data-image="frame4.png" data-label="Frame 4 · Analytics & ROI">
             <img src="frame4.png" alt="Analytics view with on‑agenda time and ROI" loading="lazy" />
             <div class="gallery-caption">
               <span class="gallery-caption-dot"></span>
@@ -1103,6 +1176,19 @@
     </div>
   </div>
 
+  <!-- LIGHTBOX FOR GALLERY -->
+  <div class="lightbox-backdrop" id="lightbox">
+    <div class="lightbox-inner">
+      <div class="lightbox-header">
+        <span id="lightbox-label"></span>
+        <button class="lightbox-close" type="button" aria-label="Close" onclick="closeLightbox()">×</button>
+      </div>
+      <div class="lightbox-image-wrapper">
+        <img id="lightbox-image" src="" alt="" />
+      </div>
+    </div>
+  </div>
+
   <script>
     // Dynamic year
     document.getElementById("year").textContent = new Date().getFullYear();
@@ -1132,12 +1218,43 @@
       });
     });
 
-    // Close on Escape
+    // Lightbox logic
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightbox-image");
+    const lightboxLabel = document.getElementById("lightbox-label");
+
+    document.querySelectorAll(".gallery-item").forEach(function (item) {
+      item.addEventListener("click", function () {
+        const src = item.getAttribute("data-image");
+        const label = item.getAttribute("data-label") || "";
+        lightboxImage.src = src;
+        lightboxImage.alt = label;
+        lightboxLabel.textContent = label;
+        lightbox.classList.add("show");
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove("show");
+      lightboxImage.src = "";
+    }
+
+    // Close lightbox on backdrop click
+    lightbox.addEventListener("click", function (e) {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    // Close modals & lightbox on Escape
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape") {
         document.querySelectorAll(".modal-backdrop.show").forEach(function (m) {
           m.classList.remove("show");
         });
+        if (lightbox.classList.contains("show")) {
+          closeLightbox();
+        }
       }
     });
   </script>
