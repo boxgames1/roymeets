@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic SEO -->
+  <meta charset="UTF-8" />
+  <title>RoyMeets – AI Meeting Coach That Turns Meetings into ROI</title>
+  <meta name="description" content="RoyMeets is an AI meeting coach that keeps your team on agenda, shows live meeting cost, and gives weekly analytics so your meetings finally pay off." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="RoyMeets – AI Meeting Coach That Turns Meetings into ROI" />
+  <meta property="og:description" content="Keep meetings on agenda, see real-time meeting cost and money saved, and get weekly analytics for your team. RoyMeets turns meetings into measurable ROI." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://roymeets.com/" />
+  <meta property="og:image" content="https://roymeets.com/logo.svg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="RoyMeets – AI Meeting Coach That Turns Meetings into ROI" />
+  <meta name="twitter:description" content="AI meeting assistant that keeps teams on agenda, saves time, and shows the real cost of meetings." />
+  <meta name="twitter:image" content="https://roymeets.com/logo.svg" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="logo.svg" />
+  <link rel="alternate icon" href="logo.svg" />
+
+  <!-- Fonts (lightweight) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <style>
+    :root {
+      /* Stripe-like palette */
+      --bg-main: #050716;
+      --bg-elevated: #050b1f;
+      --bg-elevated-soft: #070d24;
+      --text-main: #f9fafb;
+      --text-muted: #9ca3af;
+      --accent-primary: #635bff;
+      --accent-primary-soft: rgba(99, 91, 255, 0.18);
+      --accent-secondary: #1cc6ff;
+      --accent-success: #97fbd1;
+      --border-subtle: #111827;
+      --danger: #f97373;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --radius-pill: 999px;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.55);
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at top left, #111827 0, #050716 45%, #020314 100%);
+      color: var(--text-main);
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 24px 20px 40px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      background: radial-gradient(circle at 30% 0, #ffffff22 0, transparent 45%),
+                  linear-gradient(135deg, #5433ff 0, #5167fc 40%, #1cc6ff 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 0 1px rgba(15,23,42,0.6), 0 12px 30px rgba(15,23,42,0.85);
+    }
+
+    .brand-logo img {
+      width: 22px;
+      height: 22px;
+      display: block;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand-name {
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      font-size: 16px;
+    }
+
+    .brand-tagline {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .header-cta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .pill {
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--text-muted);
+      background: rgba(15,23,42,0.6);
+    }
+
+    .btn-outline {
+      padding: 7px 14px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      font-size: 12px;
+      color: var(--text-main);
+      background: transparent;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    .btn-outline span {
+      font-size: 14px;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1.1fr);
+      gap: 28px;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 880px) {
+      main {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .header-cta {
+        width: 100%;
+        justify-content: space-between;
+      }
+    }
+
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 3px 10px;
+      border-radius: var(--radius-pill);
+      background: linear-gradient(to right, var(--accent-primary-soft), rgba(15,23,42,0.8));
+      border: 1px solid rgba(99,91,255,0.5);
+      font-size: 12px;
+      color: var(--accent-secondary);
+    }
+
+    .hero-kicker span.badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent-success);
+      box-shadow: 0 0 0 4px rgba(151,251,209,0.25);
+    }
+
+    h1 {
+      font-size: clamp(30px, 5vw, 40px);
+      line-height: 1.05;
+      margin: 0;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-subtitle {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.5;
+      color: var(--text-muted);
+      max-width: 520px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 6px;
+      max-width: 400px;
+    }
+
+    .btn-primary {
+      cursor: pointer;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: var(--radius-pill);
+      padding: 11px 20px;
+      font-weight: 500;
+      font-size: 14px;
+      color: #f9fafb;
+      background: radial-gradient(circle at 0 0, #ffffff22 0, transparent 40%),
+                  linear-gradient(135deg, var(--accent-primary) 0, var(--accent-secondary) 100%);
+      box-shadow: 0 18px 40px rgba(15,23,42,0.95);
+      transition: transform 0.08s ease-out, box-shadow 0.08s ease-out, filter 0.08s ease-out;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+      box-shadow: 0 22px 50px rgba(15,23,42,1);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+      filter: brightness(0.97);
+      box-shadow: 0 14px 30px rgba(15,23,42,0.8);
+    }
+
+    .btn-primary .pill-text {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .hero-footnote {
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-footnote span.dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.7);
+    }
+
+    .hero-points {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+      max-width: 520px;
+    }
+
+    @media (max-width: 640px) {
+      .hero-points {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .point {
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .point-icon {
+      width: 16px;
+      height: 16px;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(148,163,184,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+    }
+
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .video-card {
+      background: radial-gradient(circle at top left, rgba(148,163,184,0.16) 0, transparent 55%),
+                  linear-gradient(145deg, rgba(15,23,42,0.98), rgba(15,23,42,0.96));
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      padding: 14px 14px 16px;
+      border: 1px solid rgba(31,41,55,0.85);
+    }
+
+    .video-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      gap: 8px;
+    }
+
+    .video-title {
+      font-size: 13px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .video-title-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--accent-success);
+      box-shadow: 0 0 0 4px rgba(151,251,209,0.22);
+    }
+
+    .video-meta {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .video-wrapper {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(31,41,55,0.85);
+      background: #020617;
+      position: relative;
+    }
+
+    .waitlist-card {
+      margin-top: 16px;
+      padding: 14px 14px 16px;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(31,41,55,0.9);
+      background: linear-gradient(135deg, rgba(12,20,46,0.95), rgba(12,20,46,0.96));
+    }
+
+    .waitlist-title {
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .waitlist-copy {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    footer {
+      width: 100%;
+      border-top: 1px solid rgba(31,41,55,0.9);
+      margin-top: auto;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 14px 20px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      opacity: 0.8;
+    }
+
+    .footer-links a:hover {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">
+        <a href="/" class="brand-logo" aria-label="RoyMeets logo">
+          <img src="logo.svg" alt="RoyMeets mark" />
+        </a>
+        <div class="brand-text">
+          <div class="brand-name">RoyMeets</div>
+          <div class="brand-tagline">Your AI meeting coach</div>
+        </div>
+      </div>
+      <div class="header-cta">
+        <div class="pill">Private beta • Early access</div>
+        <button class="btn-outline" onclick="document.getElementById('waitlist').scrollIntoView({behavior:'smooth'})">
+          <span>Join waitlist</span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <!-- Left: Copy -->
+      <section class="hero-copy" aria-labelledby="hero-title">
+        <div class="hero-kicker">
+          <span class="badge-dot"></span>
+          <span>Keep meetings on agenda, automatically</span>
+        </div>
+
+        <h1 id="hero-title">
+          Turn every meeting<br />into measurable ROI.
+        </h1>
+
+        <p class="hero-subtitle">
+          RoyMeets is an AI meeting coach that keeps your team on agenda, nudges you
+          when topics drift, and shows the real cost — and savings — of every call.
+        </p>
+
+        <div class="hero-actions">
+          <button class="btn-primary" onclick="document.getElementById('video').scrollIntoView({behavior:'smooth'})">
+            <span class="pill-text">▶ Watch 1‑minute product demo</span>
+          </button>
+
+          <div class="hero-footnote">
+            <span>Then join the early access list to try RoyMeets with your own team.</span>
+          </div>
+        </div>
+
+        <div class="hero-points" aria-label="Key benefits">
+          <div class="point">
+            <div class="point-icon">✓</div>
+            <span>Stay on agenda in real time</span>
+          </div>
+          <div class="point">
+            <div class="point-icon">⏱</div>
+            <span>Live time &amp; cost tracking</span>
+          </div>
+          <div class="point">
+            <div class="point-icon">📊</div>
+            <span>Weekly meeting analytics</span>
+          </div>
+          <div class="point">
+            <div class="point-icon">🤝</div>
+            <span>Host &amp; participant views</span>
+          </div>
+          <div class="point">
+            <div class="point-icon">✨</div>
+            <span>Smart post‑meeting recaps</span>
+          </div>
+          <div class="point">
+            <div class="point-icon">⚙️</div>
+            <span>Customizable intervention level</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right: Video + Waitlist -->
+      <section class="hero-right">
+        <div class="video-card" id="video">
+          <div class="video-header">
+            <div class="video-title">
+              <span class="video-title-dot"></span>
+              <span>RoyMeets product demo · 1 min</span>
+            </div>
+            <div class="video-meta">AI meeting assistant · Prototype UI</div>
+          </div>
+          <div class="video-wrapper">
+            <!-- Vimeo embed -->
+            <div style="padding:56.25% 0 0 0;position:relative;">
+              <iframe
+                src="https://player.vimeo.com/video/1197693471?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                style="position:absolute;top:0;left:0;width:100%;height:100%;"
+                title="RoyMeets.com demo">
+              </iframe>
+            </div>
+            <script src="https://player.vimeo.com/api/player.js"></script>
+          </div>
+        </div>
+
+        <div class="waitlist-card" id="waitlist">
+          <div class="waitlist-title">Get early access</div>
+          <div class="waitlist-copy">
+            We’re onboarding a small group of product teams and engineering leads.
+            Leave your email to join the private beta and we’ll reach out with next steps.
+          </div>
+
+          <!-- Tally embed -->
+          <iframe
+            data-tally-src="https://tally.so/embed/ODkKVa?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+            loading="lazy"
+            width="100%"
+            height="211"
+            frameborder="0"
+            marginheight="0"
+            marginwidth="0"
+            title="Early Access">
+          </iframe>
+          <script>
+            (function() {
+              var d = document,
+                w = "https://tally.so/widgets/embed.js",
+                v = function() {
+                  if (typeof Tally !== "undefined") {
+                    Tally.loadEmbeds();
+                  } else {
+                    d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function(e) {
+                      e.src = e.dataset.tallySrc;
+                    });
+                  }
+                };
+              if (typeof Tally !== "undefined") v();
+              else if (d.querySelector('script[src="' + w + '"]') == null) {
+                var s = d.createElement("script");
+                s.src = w;
+                s.onload = v;
+                s.onerror = v;
+                d.body.appendChild(s);
+              }
+            })();
+          </script>
+
+          <div class="hero-footnote" style="margin-top:10px;">
+            <span class="dot"></span>
+            <span>We’ll never share your email. No spam, just product updates.</span>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div>© <span id="year"></span> RoyMeets. All rights reserved.</div>
+      <div class="footer-links">
+        <span>Built for product teams who are done wasting time in off‑agenda meetings.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Dynamic year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
