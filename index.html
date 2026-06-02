@@ -7,9 +7,9 @@
   <meta name="description" content="RoyMeets is an AI meeting coach that keeps your team on agenda, shows live meeting cost, and gives weekly analytics so your meetings finally pay off." />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Open Graph / Social -->
+  <!-- Open Graph -->
   <meta property="og:title" content="RoyMeets – AI Meeting Coach That Turns Meetings into ROI" />
-  <meta property="og:description" content="Keep meetings on agenda, see real-time meeting cost and money saved, and get weekly analytics for your team. RoyMeets turns meetings into measurable ROI." />
+  <meta property="og:description" content="Keep meetings on agenda, see real-time meeting cost and money saved, and get weekly analytics for your team." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://roymeets.com/" />
   <meta property="og:image" content="https://roymeets.com/logo.svg" />
@@ -24,30 +24,29 @@
   <link rel="icon" type="image/svg+xml" href="logo.svg" />
   <link rel="alternate icon" href="logo.svg" />
 
-  <!-- Fonts (lightweight) -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <!-- Styles -->
   <style>
     :root {
-      /* Stripe-like palette */
-      --bg-main: #050716;
-      --bg-elevated: #050b1f;
-      --bg-elevated-soft: #070d24;
-      --text-main: #f9fafb;
-      --text-muted: #9ca3af;
+      /* Stripe-like light theme */
+      --bg-page: #f5f7ff;
+      --bg-hero: #ffffff;
+      --bg-card-dark: #020617;
+      --bg-card-soft: #020617;
+      --text-main: #020617;
+      --text-muted: #6b7280;
+      --border-subtle: #e2e8f0;
       --accent-primary: #635bff;
-      --accent-primary-soft: rgba(99, 91, 255, 0.18);
+      --accent-primary-soft: rgba(99, 91, 255, 0.12);
       --accent-secondary: #1cc6ff;
-      --accent-success: #97fbd1;
-      --border-subtle: #111827;
-      --danger: #f97373;
-      --radius-lg: 18px;
-      --radius-md: 12px;
+      --accent-success: #22c55e;
+      --shadow-soft: 0 20px 60px rgba(15, 23, 42, 0.18);
+      --radius-lg: 20px;
+      --radius-md: 14px;
       --radius-pill: 999px;
-      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.55);
       --max-width: 1120px;
     }
 
@@ -59,10 +58,11 @@
     body {
       margin: 0;
       padding: 0;
-      background: radial-gradient(circle at top left, #111827 0, #050716 45%, #020314 100%);
-      color: var(--text-main);
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       -webkit-font-smoothing: antialiased;
+      background:
+        radial-gradient(circle at top left, #dbeafe 0, #e5e7eb 36%, #eef2ff 70%, #f5f7ff 100%);
+      color: var(--text-main);
     }
 
     body {
@@ -88,43 +88,44 @@
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      margin-bottom: 32px;
+      margin-bottom: 28px;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
 
     .brand-logo {
-      width: 34px;
-      height: 34px;
+      width: 32px;
+      height: 32px;
       border-radius: 12px;
-      background: radial-gradient(circle at 30% 0, #ffffff22 0, transparent 45%),
+      background: radial-gradient(circle at 30% 0, #ffffff 0, #e5e7eb 42%),
                   linear-gradient(135deg, #5433ff 0, #5167fc 40%, #1cc6ff 100%);
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 0 0 1px rgba(15,23,42,0.6), 0 12px 30px rgba(15,23,42,0.85);
+      box-shadow: 0 0 0 1px rgba(15,23,42,0.18), 0 14px 30px rgba(15,23,42,0.35);
     }
 
     .brand-logo img {
-      width: 22px;
-      height: 22px;
+      width: 20px;
+      height: 20px;
       display: block;
     }
 
     .brand-text {
       display: flex;
       flex-direction: column;
-      gap: 2px;
+      gap: 1px;
     }
 
     .brand-name {
       font-weight: 600;
       letter-spacing: 0.02em;
       font-size: 16px;
+      color: #0f172a;
     }
 
     .brand-tagline {
@@ -136,61 +137,65 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      flex-wrap: wrap;
     }
 
     .pill {
-      padding: 4px 10px;
+      padding: 5px 10px;
       border-radius: var(--radius-pill);
       font-size: 11px;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      border: 1px solid rgba(148, 163, 184, 0.4);
+      border: 1px solid rgba(148, 163, 184, 0.55);
       color: var(--text-muted);
-      background: rgba(15,23,42,0.6);
+      background: rgba(255,255,255,0.8);
     }
 
     .btn-outline {
       padding: 7px 14px;
       border-radius: var(--radius-pill);
-      border: 1px solid rgba(148, 163, 184, 0.5);
+      border: 1px solid rgba(148, 163, 184, 0.7);
       font-size: 12px;
-      color: var(--text-main);
-      background: transparent;
+      color: #0f172a;
+      background: rgba(255,255,255,0.95);
       display: inline-flex;
       align-items: center;
       gap: 6px;
       cursor: pointer;
     }
 
-    .btn-outline span {
-      font-size: 14px;
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
     }
 
-    main {
+    .hero {
       display: grid;
-      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1.1fr);
-      gap: 28px;
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1.1fr);
+      gap: 26px;
       align-items: flex-start;
+      background: var(--bg-hero);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      padding: 22px 22px 24px;
+      border: 1px solid rgba(148, 163, 184, 0.28);
     }
 
     @media (max-width: 880px) {
-      main {
-        grid-template-columns: minmax(0, 1fr);
-      }
       header {
         flex-direction: column;
         align-items: flex-start;
       }
-      .header-cta {
-        width: 100%;
-        justify-content: space-between;
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
       }
     }
 
     .hero-copy {
       display: flex;
       flex-direction: column;
-      gap: 18px;
+      gap: 16px;
     }
 
     .hero-kicker {
@@ -199,10 +204,10 @@
       gap: 8px;
       padding: 3px 10px;
       border-radius: var(--radius-pill);
-      background: linear-gradient(to right, var(--accent-primary-soft), rgba(15,23,42,0.8));
-      border: 1px solid rgba(99,91,255,0.5);
+      background: linear-gradient(to right, var(--accent-primary-soft), rgba(255,255,255,0.9));
+      border: 1px solid rgba(99, 91, 255, 0.6);
       font-size: 12px;
-      color: var(--accent-secondary);
+      color: var(--accent-primary);
     }
 
     .hero-kicker span.badge-dot {
@@ -210,7 +215,7 @@
       height: 8px;
       border-radius: 999px;
       background: var(--accent-success);
-      box-shadow: 0 0 0 4px rgba(151,251,209,0.25);
+      box-shadow: 0 0 0 4px rgba(34,197,94,0.2);
     }
 
     h1 {
@@ -218,6 +223,7 @@
       line-height: 1.05;
       margin: 0;
       letter-spacing: -0.03em;
+      color: #0f172a;
     }
 
     .hero-subtitle {
@@ -231,9 +237,9 @@
     .hero-actions {
       display: flex;
       flex-direction: column;
-      gap: 14px;
-      margin-top: 6px;
-      max-width: 400px;
+      gap: 12px;
+      margin-top: 4px;
+      max-width: 420px;
     }
 
     .btn-primary {
@@ -248,49 +254,34 @@
       font-weight: 500;
       font-size: 14px;
       color: #f9fafb;
-      background: radial-gradient(circle at 0 0, #ffffff22 0, transparent 40%),
+      background: radial-gradient(circle at 0 0, #ffffff44 0, transparent 40%),
                   linear-gradient(135deg, var(--accent-primary) 0, var(--accent-secondary) 100%);
-      box-shadow: 0 18px 40px rgba(15,23,42,0.95);
+      box-shadow: 0 16px 40px rgba(37, 99, 235, 0.45);
       transition: transform 0.08s ease-out, box-shadow 0.08s ease-out, filter 0.08s ease-out;
     }
 
     .btn-primary:hover {
       transform: translateY(-1px);
-      filter: brightness(1.05);
-      box-shadow: 0 22px 50px rgba(15,23,42,1);
+      filter: brightness(1.04);
+      box-shadow: 0 20px 52px rgba(37, 99, 235, 0.55);
     }
 
     .btn-primary:active {
       transform: translateY(0);
-      filter: brightness(0.97);
-      box-shadow: 0 14px 30px rgba(15,23,42,0.8);
-    }
-
-    .btn-primary .pill-text {
-      font-size: 13px;
-      font-weight: 600;
+      filter: brightness(0.98);
+      box-shadow: 0 14px 30px rgba(37, 99, 235, 0.45);
     }
 
     .hero-footnote {
       font-size: 12px;
       color: var(--text-muted);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .hero-footnote span.dot {
-      width: 4px;
-      height: 4px;
-      border-radius: 999px;
-      background: rgba(148, 163, 184, 0.7);
     }
 
     .hero-points {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 10px;
-      margin-top: 10px;
+      gap: 8px;
+      margin-top: 8px;
       max-width: 520px;
     }
 
@@ -309,30 +300,31 @@
     }
 
     .point-icon {
-      width: 16px;
-      height: 16px;
+      width: 18px;
+      height: 18px;
       border-radius: 999px;
-      background: rgba(15,23,42,0.9);
-      border: 1px solid rgba(148,163,184,0.4);
+      background: #eef2ff;
+      border: 1px solid rgba(148,163,184,0.8);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 11px;
+      color: #4b5563;
     }
 
     .hero-right {
       display: flex;
       flex-direction: column;
-      gap: 18px;
+      gap: 14px;
     }
 
     .video-card {
-      background: radial-gradient(circle at top left, rgba(148,163,184,0.16) 0, transparent 55%),
-                  linear-gradient(145deg, rgba(15,23,42,0.98), rgba(15,23,42,0.96));
-      border-radius: var(--radius-lg);
+      background: var(--bg-card-dark);
+      border-radius: var(--radius-md);
       box-shadow: var(--shadow-soft);
       padding: 14px 14px 16px;
-      border: 1px solid rgba(31,41,55,0.85);
+      border: 1px solid rgba(15,23,42,0.8);
+      color: #e5e7eb;
     }
 
     .video-header {
@@ -355,47 +347,177 @@
       width: 9px;
       height: 9px;
       border-radius: 999px;
-      background: var(--accent-success);
-      box-shadow: 0 0 0 4px rgba(151,251,209,0.22);
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34,197,94,0.25);
     }
 
     .video-meta {
       font-size: 11px;
-      color: var(--text-muted);
+      color: #9ca3af;
     }
 
     .video-wrapper {
       border-radius: 12px;
       overflow: hidden;
-      border: 1px solid rgba(31,41,55,0.85);
+      border: 1px solid #111827;
       background: #020617;
       position: relative;
     }
 
-    .waitlist-card {
-      margin-top: 16px;
-      padding: 14px 14px 16px;
-      border-radius: var(--radius-md);
-      border: 1px solid rgba(31,41,55,0.9);
-      background: linear-gradient(135deg, rgba(12,20,46,0.95), rgba(12,20,46,0.96));
+    .section {
+      margin-top: 10px;
     }
 
-    .waitlist-title {
+    /* HOW IT WORKS */
+    .how-section {
+      background: rgba(255,255,255,0.95);
+      border-radius: var(--radius-lg);
+      padding: 20px 22px 22px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(148, 163, 184, 0.26);
+    }
+
+    .how-header {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 14px;
+      max-width: 640px;
+    }
+
+    .how-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #0f172a;
+    }
+
+    .how-copy {
       font-size: 14px;
-      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .how-steps {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    @media (max-width: 880px) {
+      .how-steps {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .how-step {
+      border-radius: 14px;
+      border: 1px solid rgba(148,163,184,0.5);
+      background: linear-gradient(145deg, #f9fafb, #eef2ff);
+      padding: 12px 12px 14px;
+    }
+
+    .how-step-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .how-step-index {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: var(--accent-primary);
+      color: #eef2ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .how-step-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #111827;
+    }
+
+    .how-step-body {
+      font-size: 13px;
+      color: var(--text-muted);
       margin-bottom: 4px;
     }
 
+    .how-step-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .how-tag {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(148,163,184,0.16);
+      color: #4b5563;
+    }
+
+    .waitlist-section {
+      margin-top: 6px;
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 22px 22px 24px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(148, 163, 184, 0.28);
+    }
+
+    .waitlist-header {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 10px;
+      max-width: 560px;
+    }
+
+    .waitlist-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #0f172a;
+    }
+
     .waitlist-copy {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .waitlist-footnote {
       font-size: 12px;
       color: var(--text-muted);
-      margin-bottom: 8px;
+      margin-top: 8px;
+    }
+
+    .legal-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 12px;
+      margin-top: 6px;
+      color: #6b7280;
+    }
+
+    .legal-links button {
+      background: none;
+      border: none;
+      padding: 0;
+      color: #4f46e5;
+      cursor: pointer;
     }
 
     footer {
       width: 100%;
-      border-top: 1px solid rgba(31,41,55,0.9);
+      border-top: 1px solid rgba(148, 163, 184, 0.5);
       margin-top: auto;
+      background: rgba(248,250,252,0.9);
     }
 
     .footer-inner {
@@ -408,6 +530,7 @@
       gap: 12px;
       font-size: 11px;
       color: var(--text-muted);
+      flex-wrap: wrap;
     }
 
     .footer-links {
@@ -417,12 +540,95 @@
       flex-wrap: wrap;
     }
 
-    .footer-links a {
-      opacity: 0.8;
+    .footer-links button {
+      border: none;
+      background: none;
+      padding: 0;
+      font: inherit;
+      color: #4f46e5;
+      cursor: pointer;
     }
 
-    .footer-links a:hover {
-      opacity: 1;
+    /* Simple modal styles */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15,23,42,0.65);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      z-index: 40;
+    }
+
+    .modal {
+      max-width: 640px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 30px 80px rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      max-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .modal-header {
+      padding: 14px 18px 10px;
+      border-bottom: 1px solid #e5e7eb;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .modal-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #0f172a;
+    }
+
+    .modal-close {
+      border: none;
+      background: none;
+      font-size: 16px;
+      cursor: pointer;
+      color: #6b7280;
+    }
+
+    .modal-body {
+      padding: 14px 18px 18px;
+      overflow-y: auto;
+      font-size: 13px;
+      color: #4b5563;
+    }
+
+    .modal-body h3 {
+      margin-top: 12px;
+      margin-bottom: 4px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #111827;
+    }
+
+    .modal-body p {
+      margin-top: 4px;
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+
+    .modal-body ul {
+      margin: 4px 0 8px 18px;
+      padding: 0;
+    }
+
+    .modal-body li {
+      margin-bottom: 4px;
+    }
+
+    .modal-backdrop.show {
+      display: flex;
     }
   </style>
 </head>
@@ -440,140 +646,208 @@
       </div>
       <div class="header-cta">
         <div class="pill">Private beta • Early access</div>
-        <button class="btn-outline" onclick="document.getElementById('waitlist').scrollIntoView({behavior:'smooth'})">
-          <span>Join waitlist</span>
+        <button class="btn-outline" onclick="scrollToWaitlist()">
+          Join waitlist
         </button>
       </div>
     </header>
 
     <main>
-      <!-- Left: Copy -->
-      <section class="hero-copy" aria-labelledby="hero-title">
-        <div class="hero-kicker">
-          <span class="badge-dot"></span>
-          <span>Keep meetings on agenda, automatically</span>
+      <!-- HERO -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <div class="hero-kicker">
+            <span class="badge-dot"></span>
+            <span>Keep your team on agenda, automatically</span>
+          </div>
+
+          <h1 id="hero-title">
+            Turn every meeting<br />into measurable ROI.
+          </h1>
+
+          <p class="hero-subtitle">
+            RoyMeets is an AI meeting coach that keeps discussions on track, gently nudges you
+            when topics drift, and shows the real cost—and savings—of every call.
+          </p>
+
+          <div class="hero-actions">
+            <button class="btn-primary" onclick="scrollToDemo()">
+              ▶ Watch the 1‑minute product demo
+            </button>
+            <div class="hero-footnote">
+              Then leave your email below to join the private beta for product and engineering teams.
+            </div>
+          </div>
+
+          <div class="hero-points" aria-label="Key benefits">
+            <div class="point">
+              <div class="point-icon">✓</div>
+              <span>Live on‑agenda / off‑agenda tracking</span>
+            </div>
+            <div class="point">
+              <div class="point-icon">⏱</div>
+              <span>Timeboxing per topic in real time</span>
+            </div>
+            <div class="point">
+              <div class="point-icon">💸</div>
+              <span>Meeting cost &amp; money saved widget</span>
+            </div>
+            <div class="point">
+              <div class="point-icon">📊</div>
+              <span>Weekly meeting analytics for teams</span>
+            </div>
+            <div class="point">
+              <div class="point-icon">🤝</div>
+              <span>Host cockpit &amp; light participant view</span>
+            </div>
+            <div class="point">
+              <div class="point-icon">✨</div>
+              <span>Smart post‑meeting recaps &amp; tips</span>
+            </div>
+          </div>
         </div>
 
-        <h1 id="hero-title">
-          Turn every meeting<br />into measurable ROI.
-        </h1>
-
-        <p class="hero-subtitle">
-          RoyMeets is an AI meeting coach that keeps your team on agenda, nudges you
-          when topics drift, and shows the real cost — and savings — of every call.
-        </p>
-
-        <div class="hero-actions">
-          <button class="btn-primary" onclick="document.getElementById('video').scrollIntoView({behavior:'smooth'})">
-            <span class="pill-text">▶ Watch 1‑minute product demo</span>
-          </button>
-
-          <div class="hero-footnote">
-            <span>Then join the early access list to try RoyMeets with your own team.</span>
-          </div>
-        </div>
-
-        <div class="hero-points" aria-label="Key benefits">
-          <div class="point">
-            <div class="point-icon">✓</div>
-            <span>Stay on agenda in real time</span>
-          </div>
-          <div class="point">
-            <div class="point-icon">⏱</div>
-            <span>Live time &amp; cost tracking</span>
-          </div>
-          <div class="point">
-            <div class="point-icon">📊</div>
-            <span>Weekly meeting analytics</span>
-          </div>
-          <div class="point">
-            <div class="point-icon">🤝</div>
-            <span>Host &amp; participant views</span>
-          </div>
-          <div class="point">
-            <div class="point-icon">✨</div>
-            <span>Smart post‑meeting recaps</span>
-          </div>
-          <div class="point">
-            <div class="point-icon">⚙️</div>
-            <span>Customizable intervention level</span>
+        <div class="hero-right" id="demo">
+          <div class="video-card">
+            <div class="video-header">
+              <div class="video-title">
+                <span class="video-title-dot"></span>
+                <span>RoyMeets product demo · 1 min</span>
+              </div>
+              <div class="video-meta">Prototype UI · AI meeting assistant</div>
+            </div>
+            <div class="video-wrapper">
+              <!-- Vimeo embed -->
+              <div style="padding:56.25% 0 0 0;position:relative;">
+                <iframe
+                  src="https://player.vimeo.com/video/1197693471?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                  frameborder="0"
+                  allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  style="position:absolute;top:0;left:0;width:100%;height:100%;"
+                  title="RoyMeets.com demo">
+                </iframe>
+              </div>
+              <script src="https://player.vimeo.com/api/player.js"></script>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- Right: Video + Waitlist -->
-      <section class="hero-right">
-        <div class="video-card" id="video">
-          <div class="video-header">
-            <div class="video-title">
-              <span class="video-title-dot"></span>
-              <span>RoyMeets product demo · 1 min</span>
-            </div>
-            <div class="video-meta">AI meeting assistant · Prototype UI</div>
-          </div>
-          <div class="video-wrapper">
-            <!-- Vimeo embed -->
-            <div style="padding:56.25% 0 0 0;position:relative;">
-              <iframe
-                src="https://player.vimeo.com/video/1197693471?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-                frameborder="0"
-                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                style="position:absolute;top:0;left:0;width:100%;height:100%;"
-                title="RoyMeets.com demo">
-              </iframe>
-            </div>
-            <script src="https://player.vimeo.com/api/player.js"></script>
+      <!-- HOW IT WORKS -->
+      <section class="how-section" aria-labelledby="how-title">
+        <div class="how-header">
+          <div class="how-title" id="how-title">How RoyMeets works</div>
+          <div class="how-copy">
+            A lightweight AI layer that sits on top of your existing video calls.
+            No new workflow to learn—just better meetings.
           </div>
         </div>
 
-        <div class="waitlist-card" id="waitlist">
-          <div class="waitlist-title">Get early access</div>
+        <div class="how-steps">
+          <div class="how-step">
+            <div class="how-step-header">
+              <div class="how-step-index">1</div>
+              <div class="how-step-title">Join your meetings</div>
+            </div>
+            <div class="how-step-body">
+              Connect RoyMeets to your calendar and invite it to recurring team calls.
+              It watches the agenda, speakers and timing in real time.
+            </div>
+            <div class="how-step-tags">
+              <span class="how-tag">Google Meet</span>
+              <span class="how-tag">Agenda import</span>
+            </div>
+          </div>
+
+          <div class="how-step">
+            <div class="how-step-header">
+              <div class="how-step-index">2</div>
+              <div class="how-step-title">Keep topics on track</div>
+            </div>
+            <div class="how-step-body">
+              When a topic drifts or runs long, RoyMeets sends gentle nudges and re‑balances
+              time so you finish the agenda instead of overrunning.
+            </div>
+            <div class="how-step-tags">
+              <span class="how-tag">Soft nudges</span>
+              <span class="how-tag">Host controls</span>
+            </div>
+          </div>
+
+          <div class="how-step">
+            <div class="how-step-header">
+              <div class="how-step-index">3</div>
+              <div class="how-step-title">See the ROI</div>
+            </div>
+            <div class="how-step-body">
+              After each call, you get a recap, on‑agenda score, and the estimated cost
+              and savings. Weekly analytics show which meetings to shorten or redesign.
+            </div>
+            <div class="how-step-tags">
+              <span class="how-tag">Meeting score</span>
+              <span class="how-tag">Cost analytics</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WAITLIST SECTION -->
+      <section class="waitlist-section" id="waitlist">
+        <div class="waitlist-header">
+          <div class="waitlist-title">Request early access</div>
           <div class="waitlist-copy">
-            We’re onboarding a small group of product teams and engineering leads.
-            Leave your email to join the private beta and we’ll reach out with next steps.
-          </div>
-
-          <!-- Tally embed -->
-          <iframe
-            data-tally-src="https://tally.so/embed/ODkKVa?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-            loading="lazy"
-            width="100%"
-            height="211"
-            frameborder="0"
-            marginheight="0"
-            marginwidth="0"
-            title="Early Access">
-          </iframe>
-          <script>
-            (function() {
-              var d = document,
-                w = "https://tally.so/widgets/embed.js",
-                v = function() {
-                  if (typeof Tally !== "undefined") {
-                    Tally.loadEmbeds();
-                  } else {
-                    d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function(e) {
-                      e.src = e.dataset.tallySrc;
-                    });
-                  }
-                };
-              if (typeof Tally !== "undefined") v();
-              else if (d.querySelector('script[src="' + w + '"]') == null) {
-                var s = d.createElement("script");
-                s.src = w;
-                s.onload = v;
-                s.onerror = v;
-                d.body.appendChild(s);
-              }
-            })();
-          </script>
-
-          <div class="hero-footnote" style="margin-top:10px;">
-            <span class="dot"></span>
-            <span>We’ll never share your email. No spam, just product updates.</span>
+            We’re inviting a small group of teams to try RoyMeets while we refine the product.
+            Add your email to hear when slots open and to share how you run meetings today.
           </div>
         </div>
+
+        <!-- Tally embed -->
+        <iframe
+          data-tally-src="https://tally.so/embed/ODkKVa?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+          loading="lazy"
+          width="100%"
+          height="211"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          title="Early Access">
+        </iframe>
+
+        <div class="waitlist-footnote">
+          We’ll only use your email to contact you about RoyMeets and the beta. You can opt out anytime.
+        </div>
+
+        <div class="legal-links">
+          <span>By joining the waitlist you agree to our</span>
+          <button type="button" onclick="openModal('tos-modal')">Terms of Service</button>
+          <span>and</span>
+          <button type="button" onclick="openModal('privacy-modal')">Privacy Policy</button>.
+        </div>
+
+        <script>
+          (function() {
+            var d = document,
+              w = "https://tally.so/widgets/embed.js",
+              v = function() {
+                if (typeof Tally !== "undefined") {
+                  Tally.loadEmbeds();
+                } else {
+                  d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function(e) {
+                    e.src = e.dataset.tallySrc;
+                  });
+                }
+              };
+            if (typeof Tally !== "undefined") v();
+            else if (d.querySelector('script[src="' + w + '"]') == null) {
+              var s = d.createElement("script");
+              s.src = w;
+              s.onload = v;
+              s.onerror = v;
+              d.body.appendChild(s);
+            }
+          })();
+        </script>
       </section>
     </main>
   </div>
@@ -582,14 +856,160 @@
     <div class="footer-inner">
       <div>© <span id="year"></span> RoyMeets. All rights reserved.</div>
       <div class="footer-links">
-        <span>Built for product teams who are done wasting time in off‑agenda meetings.</span>
+        <span>Built for teams who are done wasting time in off‑agenda meetings.</span>
+        <button type="button" onclick="openModal('tos-modal')">Terms</button>
+        <button type="button" onclick="openModal('privacy-modal')">Privacy</button>
       </div>
     </div>
   </footer>
 
+  <!-- TERMS MODAL -->
+  <div class="modal-backdrop" id="tos-modal">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="tos-title">
+      <div class="modal-header">
+        <div class="modal-title" id="tos-title">Terms of Service</div>
+        <button class="modal-close" type="button" aria-label="Close" onclick="closeModal('tos-modal')">×</button>
+      </div>
+      <div class="modal-body">
+        <p>
+          These Terms of Service set out the basic rules for using this website and any related
+          pre‑release services made available through it. By accessing the site or joining the waitlist,
+          you agree to these terms.
+        </p>
+
+        <h3>Beta status</h3>
+        <p>
+          RoyMeets is currently offered as a limited, pre‑release product for evaluation purposes only.
+          Features may change, break, or be discontinued at any time without notice.
+        </p>
+
+        <h3>Use at your own risk</h3>
+        <p>
+          You are responsible for how you use the information and insights provided by RoyMeets.
+          The service is offered “as is” without guarantees of accuracy, availability, or fitness for
+          a particular purpose.
+        </p>
+
+        <h3>Accounts and access</h3>
+        <p>
+          If we invite you to the beta, you are responsible for keeping any login credentials
+          confidential and for all activity that takes place under your account.
+        </p>
+
+        <h3>Acceptable use</h3>
+        <p>
+          You agree not to misuse the service, interfere with its normal operation, attempt to gain
+          unauthorized access, or use it to violate applicable laws or the privacy of others.
+        </p>
+
+        <h3>Intellectual property</h3>
+        <p>
+          All product designs, user interfaces, text, graphics, and other content on this site are
+          protected by intellectual property rights and may not be copied, modified, or redistributed
+          without prior permission.
+        </p>
+
+        <h3>Changes</h3>
+        <p>
+          These terms may be updated from time to time. Continued use of the site after changes are
+          posted means you accept the revised terms.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRIVACY MODAL -->
+  <div class="modal-backdrop" id="privacy-modal">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="privacy-title">
+      <div class="modal-header">
+        <div class="modal-title" id="privacy-title">Privacy Policy</div>
+        <button class="modal-close" type="button" aria-label="Close" onclick="closeModal('privacy-modal')">×</button>
+      </div>
+      <div class="modal-body">
+        <p>
+          This Privacy Policy explains, in a general way, how information is collected and used when
+          you visit this website or submit your details to join the early access waitlist.
+        </p>
+
+        <h3>Information we collect</h3>
+        <ul>
+          <li>Contact details you provide, such as your email address and optional role or company.</li>
+          <li>Basic usage information about how you interact with this site (for example, pages viewed or forms submitted).</li>
+        </ul>
+
+        <h3>How we use your information</h3>
+        <ul>
+          <li>To contact you about RoyMeets, including beta invitations and product updates.</li>
+          <li>To understand interest in the product and improve the experience.</li>
+          <li>To maintain the security and reliability of the website.</li>
+        </ul>
+
+        <h3>Data sharing</h3>
+        <p>
+          We do not sell your personal information. Limited third‑party services may process data
+          on our behalf for things like form submissions, analytics, or video hosting, under their
+          own privacy terms.
+        </p>
+
+        <h3>Retention</h3>
+        <p>
+          Contact details are kept for as long as they are needed to operate the waitlist and beta,
+          or until you ask for them to be removed.
+        </p>
+
+        <h3>Your choices</h3>
+        <p>
+          You can opt out of communications at any time by following the instructions in our emails
+          or by contacting us directly. You may also request that we delete your contact details
+          from the waitlist.
+        </p>
+
+        <h3>Updates</h3>
+        <p>
+          This policy may be updated occasionally to reflect changes in how the site or service
+          operates. We encourage you to review it from time to time.
+        </p>
+      </div>
+    </div>
+  </div>
+
   <script>
     // Dynamic year
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    function scrollToDemo() {
+      document.getElementById("demo").scrollIntoView({ behavior: "smooth" });
+    }
+
+    function scrollToWaitlist() {
+      document.getElementById("waitlist").scrollIntoView({ behavior: "smooth" });
+    }
+
+    function openModal(id) {
+      document.getElementById(id).classList.add("show");
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.remove("show");
+    }
+
+    // Close modal on backdrop click
+    document.querySelectorAll(".modal-backdrop").forEach(function (backdrop) {
+      backdrop.addEventListener("click", function (e) {
+        if (e.target === backdrop) {
+          backdrop.classList.remove("show");
+        }
+      });
+    });
+
+    // Close on Escape
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") {
+        document.querySelectorAll(".modal-backdrop.show").forEach(function (m) {
+          m.classList.remove("show");
+        });
+      }
+    });
   </script>
 </body>
 </html>
