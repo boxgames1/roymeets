@@ -35,10 +35,8 @@
       --bg-page: #f5f7ff;
       --bg-hero: #ffffff;
       --bg-card-dark: #020617;
-      --bg-card-soft: #020617;
       --text-main: #020617;
       --text-muted: #6b7280;
-      --border-subtle: #e2e8f0;
       --accent-primary: #635bff;
       --accent-primary-soft: rgba(99, 91, 255, 0.12);
       --accent-secondary: #1cc6ff;
@@ -364,10 +362,6 @@
       position: relative;
     }
 
-    .section {
-      margin-top: 10px;
-    }
-
     /* HOW IT WORKS */
     .how-section {
       background: rgba(255,255,255,0.95);
@@ -460,6 +454,97 @@
       border-radius: 999px;
       background: rgba(148,163,184,0.16);
       color: #4b5563;
+    }
+
+    /* GALLERY */
+    .gallery-section {
+      background: rgba(255,255,255,0.95);
+      border-radius: var(--radius-lg);
+      padding: 20px 22px 22px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(148, 163, 184, 0.26);
+    }
+
+    .gallery-header {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 14px;
+      max-width: 640px;
+    }
+
+    .gallery-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #0f172a;
+    }
+
+    .gallery-copy {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    @media (max-width: 960px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 600px) {
+      .gallery-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(148,163,184,0.7);
+      background: #020617;
+      cursor: pointer;
+      transform: translateY(0);
+      transition: transform 0.1s ease-out, box-shadow 0.1s ease-out, border-color 0.1s ease-out;
+    }
+
+    .gallery-item img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 40px rgba(15,23,42,0.45);
+      border-color: #4f46e5;
+    }
+
+    .gallery-caption {
+      position: absolute;
+      left: 10px;
+      bottom: 8px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      font-size: 11px;
+      color: #e5e7eb;
+      background: radial-gradient(circle at 0 0, rgba(15,23,42,0.6) 0, rgba(15,23,42,0.9) 60%);
+      border: 1px solid rgba(148,163,184,0.6);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .gallery-caption-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
     }
 
     .waitlist-section {
@@ -667,7 +752,7 @@
 
           <p class="hero-subtitle">
             RoyMeets is an AI meeting coach that keeps discussions on track, gently nudges you
-            when topics drift, and shows the real cost (and savings) of every call.
+            when topics drift, and shows the real cost—and savings—of every call.
           </p>
 
           <div class="hero-actions">
@@ -740,7 +825,7 @@
           <div class="how-title" id="how-title">How RoyMeets works</div>
           <div class="how-copy">
             A lightweight AI layer that sits on top of your existing video calls.
-            No new workflow to learn. Just better meetings.
+            No new workflow to learn—just better meetings.
           </div>
         </div>
 
@@ -787,6 +872,51 @@
             <div class="how-step-tags">
               <span class="how-tag">Meeting score</span>
               <span class="how-tag">Cost analytics</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRODUCT SCREENS GALLERY -->
+      <section class="gallery-section" aria-labelledby="gallery-title">
+        <div class="gallery-header">
+          <div class="gallery-title" id="gallery-title">Product screens</div>
+          <div class="gallery-copy">
+            A closer look at how RoyMeets shows up inside your meetings and analytics.
+            These are the same screens used in the 1‑minute demo.
+          </div>
+        </div>
+
+        <div class="gallery-grid">
+          <div class="gallery-item" onclick="scrollToDemo()">
+            <img src="frame1.png" alt="Meeting start with agenda visible" loading="lazy" />
+            <div class="gallery-caption">
+              <span class="gallery-caption-dot"></span>
+              <span>Frame 1 · Meeting start</span>
+            </div>
+          </div>
+
+          <div class="gallery-item" onclick="scrollToDemo()">
+            <img src="frame2.png" alt="Off‑agenda moment with AI nudge" loading="lazy" />
+            <div class="gallery-caption">
+              <span class="gallery-caption-dot"></span>
+              <span>Frame 2 · Off‑agenda nudge</span>
+            </div>
+          </div>
+
+          <div class="gallery-item" onclick="scrollToDemo()">
+            <img src="frame3.png" alt="Back on track and time re‑balanced" loading="lazy" />
+            <div class="gallery-caption">
+              <span class="gallery-caption-dot"></span>
+              <span>Frame 3 · Back on track</span>
+            </div>
+          </div>
+
+          <div class="gallery-item" onclick="scrollToDemo()">
+            <img src="frame4.png" alt="Analytics view with on‑agenda time and ROI" loading="lazy" />
+            <div class="gallery-caption">
+              <span class="gallery-caption-dot"></span>
+              <span>Frame 4 · Analytics & ROI</span>
             </div>
           </div>
         </div>
