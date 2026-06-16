@@ -1,47 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Basic SEO -->
   <meta charset="UTF-8" />
   <title>RoyMeets – AI Meeting Coach That Turns Meetings into ROI</title>
   <meta name="description" content="RoyMeets is an AI meeting coach that keeps your team on agenda, shows live meeting cost, and gives weekly analytics so your meetings finally pay off." />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- Open Graph -->
   <meta property="og:title" content="RoyMeets – AI Meeting Coach That Turns Meetings into ROI" />
   <meta property="og:description" content="Keep meetings on agenda, see real-time meeting cost and money saved, and get weekly analytics for your team." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://roymeets.com/" />
   <meta property="og:image" content="https://roymeets.com/logo.svg" />
-
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="RoyMeets – AI Meeting Coach That Turns Meetings into ROI" />
   <meta name="twitter:description" content="AI meeting assistant that keeps teams on agenda, saves time, and shows the real cost of meetings." />
   <meta name="twitter:image" content="https://roymeets.com/logo.svg" />
-
-  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="logo.svg" />
   <link rel="alternate icon" href="logo.svg" />
-
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSGKZQCG2W"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-  
     gtag('config', 'G-VSGKZQCG2W');
   </script>
-  
   <style>
     :root {
-      /* Stripe-like light theme */
       --bg-page: #f5f7ff;
       --bg-hero: #ffffff;
       --bg-card-dark: #020617;
@@ -57,746 +43,275 @@
       --radius-pill: 999px;
       --max-width: 1120px;
     }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html,
-    body {
-      margin: 0;
-      padding: 0;
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0; padding: 0;
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       -webkit-font-smoothing: antialiased;
-      background:
-        radial-gradient(circle at top left, #dbeafe 0, #e5e7eb 36%, #eef2ff 70%, #f5f7ff 100%);
+      background: radial-gradient(circle at top left, #dbeafe 0, #e5e7eb 36%, #eef2ff 70%, #f5f7ff 100%);
       color: var(--text-main);
     }
-
-    body {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .page {
-      width: 100%;
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 24px 20px 40px;
-    }
-
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 28px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
+    body { min-height: 100vh; display: flex; flex-direction: column; }
+    a { color: inherit; text-decoration: none; }
+    .page { width: 100%; max-width: var(--max-width); margin: 0 auto; padding: 24px 20px 40px; }
+    header { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 28px; }
+    .brand { display: flex; align-items: center; gap: 10px; }
     .brand-logo {
-      width: 32px;
-      height: 32px;
-      border-radius: 12px;
-      background: radial-gradient(circle at 30% 0, #ffffff 0, #e5e7eb 42%),
-                  linear-gradient(135deg, #5433ff 0, #5167fc 40%, #1cc6ff 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width: 32px; height: 32px; border-radius: 12px;
+      background: radial-gradient(circle at 30% 0, #ffffff 0, #e5e7eb 42%), linear-gradient(135deg, #5433ff 0, #5167fc 40%, #1cc6ff 100%);
+      display: flex; align-items: center; justify-content: center;
       box-shadow: 0 0 0 1px rgba(15,23,42,0.18), 0 14px 30px rgba(15,23,42,0.35);
     }
-
-    .brand-logo img {
-      width: 20px;
-      height: 20px;
-      display: block;
-    }
-
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      gap: 1px;
-    }
-
-    .brand-name {
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      font-size: 16px;
-      color: #0f172a;
-    }
-
-    .brand-tagline {
-      font-size: 12px;
-      color: var(--text-muted);
-    }
-
-    .header-cta {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
+    .brand-logo img { width: 20px; height: 20px; display: block; }
+    .brand-text { display: flex; flex-direction: column; gap: 1px; }
+    .brand-name { font-weight: 600; letter-spacing: 0.02em; font-size: 16px; color: #0f172a; }
+    .brand-tagline { font-size: 12px; color: var(--text-muted); }
+    .header-cta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
     .pill {
-      padding: 5px 10px;
-      border-radius: var(--radius-pill);
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      border: 1px solid rgba(148, 163, 184, 0.55);
-      color: var(--text-muted);
-      background: rgba(255,255,255,0.8);
+      padding: 5px 10px; border-radius: var(--radius-pill); font-size: 11px;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      border: 1px solid rgba(148, 163, 184, 0.55); color: var(--text-muted); background: rgba(255,255,255,0.8);
     }
-
     .btn-outline {
-      padding: 7px 14px;
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      font-size: 12px;
-      color: #0f172a;
-      background: rgba(255,255,255,0.95);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      cursor: pointer;
+      padding: 7px 14px; border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.7); font-size: 12px; color: #0f172a;
+      background: rgba(255,255,255,0.95); display: inline-flex; align-items: center; gap: 6px; cursor: pointer;
     }
-
-    main {
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-    }
-
+    main { display: flex; flex-direction: column; gap: 30px; }
     .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1.1fr);
-      gap: 26px;
-      align-items: flex-start;
-      background: var(--bg-hero);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-soft);
-      padding: 22px 22px 24px;
+      display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1.1fr);
+      gap: 26px; align-items: flex-start;
+      background: var(--bg-hero); border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft); padding: 22px 22px 24px;
       border: 1px solid rgba(148, 163, 184, 0.28);
     }
-
     @media (max-width: 880px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .hero {
-        grid-template-columns: minmax(0, 1fr);
-      }
+      header { flex-direction: column; align-items: flex-start; }
+      .hero { grid-template-columns: minmax(0, 1fr); }
     }
-
-    .hero-copy {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
+    .hero-copy { display: flex; flex-direction: column; gap: 16px; }
     .hero-kicker {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 3px 10px;
+      display: inline-flex; align-items: center; gap: 8px; padding: 3px 10px;
       border-radius: var(--radius-pill);
       background: linear-gradient(to right, var(--accent-primary-soft), rgba(255,255,255,0.9));
-      border: 1px solid rgba(99, 91, 255, 0.6);
-      font-size: 12px;
-      color: var(--accent-primary);
+      border: 1px solid rgba(99, 91, 255, 0.6); font-size: 12px; color: var(--accent-primary);
     }
-
     .hero-kicker span.badge-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: var(--accent-success);
-      box-shadow: 0 0 0 4px rgba(34,197,94,0.2);
+      width: 8px; height: 8px; border-radius: 999px;
+      background: var(--accent-success); box-shadow: 0 0 0 4px rgba(34,197,94,0.2);
     }
-
-    h1 {
-      font-size: clamp(30px, 5vw, 40px);
-      line-height: 1.05;
-      margin: 0;
-      letter-spacing: -0.03em;
-      color: #0f172a;
-    }
-
-    .hero-subtitle {
-      margin: 0;
-      font-size: 15px;
-      line-height: 1.5;
-      color: var(--text-muted);
-      max-width: 520px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-top: 4px;
-      max-width: 420px;
-    }
-
+    h1 { font-size: clamp(30px, 5vw, 40px); line-height: 1.05; margin: 0; letter-spacing: -0.03em; color: #0f172a; }
+    .hero-subtitle { margin: 0; font-size: 15px; line-height: 1.5; color: var(--text-muted); max-width: 520px; }
+    .hero-actions { display: flex; flex-direction: column; gap: 12px; margin-top: 4px; max-width: 420px; }
     .btn-primary {
-      cursor: pointer;
-      border: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      border-radius: var(--radius-pill);
-      padding: 11px 20px;
-      font-weight: 500;
-      font-size: 14px;
-      color: #f9fafb;
-      background: radial-gradient(circle at 0 0, #ffffff44 0, transparent 40%),
-                  linear-gradient(135deg, var(--accent-primary) 0, var(--accent-secondary) 100%);
+      cursor: pointer; border: none;
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      border-radius: var(--radius-pill); padding: 11px 20px;
+      font-weight: 500; font-size: 14px; color: #f9fafb;
+      background: radial-gradient(circle at 0 0, #ffffff44 0, transparent 40%), linear-gradient(135deg, var(--accent-primary) 0, var(--accent-secondary) 100%);
       box-shadow: 0 16px 40px rgba(37, 99, 235, 0.45);
       transition: transform 0.08s ease-out, box-shadow 0.08s ease-out, filter 0.08s ease-out;
     }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      filter: brightness(1.04);
-      box-shadow: 0 20px 52px rgba(37, 99, 235, 0.55);
-    }
-
-    .btn-primary:active {
-      transform: translateY(0);
-      filter: brightness(0.98);
-      box-shadow: 0 14px 30px rgba(37, 99, 235, 0.45);
-    }
-
-    .hero-footnote {
-      font-size: 12px;
-      color: var(--text-muted);
-    }
-
-    .hero-points {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 8px;
-      margin-top: 8px;
-      max-width: 520px;
-    }
-
-    @media (max-width: 640px) {
-      .hero-points {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    .point {
-      font-size: 12px;
-      color: var(--text-muted);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
+    .btn-primary:hover { transform: translateY(-1px); filter: brightness(1.04); box-shadow: 0 20px 52px rgba(37, 99, 235, 0.55); }
+    .btn-primary:active { transform: translateY(0); filter: brightness(0.98); box-shadow: 0 14px 30px rgba(37, 99, 235, 0.45); }
+    .hero-footnote { font-size: 12px; color: var(--text-muted); }
+    .hero-points { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 8px; max-width: 520px; }
+    @media (max-width: 640px) { .hero-points { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    .point { font-size: 12px; color: var(--text-muted); display: flex; align-items: center; gap: 6px; }
     .point-icon {
-      width: 18px;
-      height: 18px;
-      border-radius: 999px;
-      background: #eef2ff;
-      border: 1px solid rgba(148,163,184,0.8);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      color: #4b5563;
+      width: 18px; height: 18px; border-radius: 999px; background: #eef2ff;
+      border: 1px solid rgba(148,163,184,0.8); display: flex; align-items: center;
+      justify-content: center; font-size: 11px; color: #4b5563; flex-shrink: 0;
     }
-
-    .hero-right {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
+    .hero-right { display: flex; flex-direction: column; gap: 14px; }
     .video-card {
-      background: var(--bg-card-dark);
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-soft);
-      padding: 14px 14px 16px;
-      border: 1px solid rgba(15,23,42,0.8);
-      color: #e5e7eb;
+      background: var(--bg-card-dark); border-radius: var(--radius-md);
+      box-shadow: var(--shadow-soft); padding: 14px 14px 16px;
+      border: 1px solid rgba(15,23,42,0.8); color: #e5e7eb;
     }
-
-    .video-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 10px;
-      gap: 8px;
-    }
-
-    .video-title {
-      font-size: 13px;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .video-title-dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 0 4px rgba(34,197,94,0.25);
-    }
-
-    .video-meta {
-      font-size: 11px;
-      color: #9ca3af;
-    }
-
-    .video-wrapper {
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid #111827;
-      background: #020617;
-      position: relative;
-    }
-
+    .video-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; gap: 8px; }
+    .video-title { font-size: 13px; font-weight: 500; display: flex; align-items: center; gap: 8px; }
+    .video-title-dot { width: 9px; height: 9px; border-radius: 999px; background: #22c55e; box-shadow: 0 0 0 4px rgba(34,197,94,0.25); }
+    .video-meta { font-size: 11px; color: #9ca3af; }
+    .video-wrapper { border-radius: 12px; overflow: hidden; border: 1px solid #111827; background: #020617; position: relative; }
     /* HOW IT WORKS */
     .how-section {
-      background: rgba(255,255,255,0.95);
-      border-radius: var(--radius-lg);
-      padding: 20px 22px 22px;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(148, 163, 184, 0.26);
+      background: rgba(255,255,255,0.95); border-radius: var(--radius-lg);
+      padding: 20px 22px 22px; box-shadow: var(--shadow-soft); border: 1px solid rgba(148, 163, 184, 0.26);
     }
-
-    .how-header {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      margin-bottom: 14px;
-      max-width: 640px;
-    }
-
-    .how-title {
-      font-size: 18px;
-      font-weight: 600;
-      color: #0f172a;
-    }
-
-    .how-copy {
-      font-size: 14px;
-      color: var(--text-muted);
-    }
-
-    .how-steps {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    @media (max-width: 880px) {
-      .how-steps {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
+    .how-header { display: flex; flex-direction: column; gap: 4px; margin-bottom: 14px; max-width: 640px; }
+    .how-title { font-size: 18px; font-weight: 600; color: #0f172a; }
+    .how-copy { font-size: 14px; color: var(--text-muted); }
+    .how-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+    @media (max-width: 880px) { .how-steps { grid-template-columns: minmax(0, 1fr); } }
     .how-step {
-      border-radius: 14px;
-      border: 1px solid rgba(148,163,184,0.5);
-      background: linear-gradient(145deg, #f9fafb, #eef2ff);
-      padding: 12px 12px 14px;
+      border-radius: 14px; border: 1px solid rgba(148,163,184,0.5);
+      background: linear-gradient(145deg, #f9fafb, #eef2ff); padding: 12px 12px 14px;
     }
-
-    .how-step-header {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 6px;
-    }
-
+    .how-step-header { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
     .how-step-index {
-      width: 22px;
-      height: 22px;
-      border-radius: 999px;
-      background: var(--accent-primary);
-      color: #eef2ff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      font-weight: 600;
+      width: 22px; height: 22px; border-radius: 999px; background: var(--accent-primary);
+      color: #eef2ff; display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 600; flex-shrink: 0;
     }
-
-    .how-step-title {
-      font-size: 14px;
-      font-weight: 600;
-      color: #111827;
-    }
-
-    .how-step-body {
-      font-size: 13px;
-      color: var(--text-muted);
-      margin-bottom: 4px;
-    }
-
-    .how-step-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 4px;
-    }
-
-    .how-tag {
-      font-size: 11px;
-      padding: 3px 8px;
-      border-radius: 999px;
-      background: rgba(148,163,184,0.16);
-      color: #4b5563;
-    }
-
+    .how-step-title { font-size: 14px; font-weight: 600; color: #111827; }
+    .how-step-body { font-size: 13px; color: var(--text-muted); margin-bottom: 4px; }
+    .how-step-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+    .how-tag { font-size: 11px; padding: 3px 8px; border-radius: 999px; background: rgba(148,163,184,0.16); color: #4b5563; }
     /* GALLERY */
     .gallery-section {
-      background: rgba(255,255,255,0.95);
-      border-radius: var(--radius-lg);
-      padding: 20px 22px 22px;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(148, 163, 184, 0.26);
+      background: rgba(255,255,255,0.95); border-radius: var(--radius-lg);
+      padding: 20px 22px 22px; box-shadow: var(--shadow-soft); border: 1px solid rgba(148, 163, 184, 0.26);
     }
-
-    .gallery-header {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      margin-bottom: 14px;
-      max-width: 640px;
-    }
-
-    .gallery-title {
-      font-size: 18px;
-      font-weight: 600;
-      color: #0f172a;
-    }
-
-    .gallery-copy {
-      font-size: 14px;
-      color: var(--text-muted);
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 10px;
-    }
-
-    @media (max-width: 960px) {
-      .gallery-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 600px) {
-      .gallery-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
+    .gallery-header { display: flex; flex-direction: column; gap: 4px; margin-bottom: 14px; max-width: 640px; }
+    .gallery-title { font-size: 18px; font-weight: 600; color: #0f172a; }
+    .gallery-copy { font-size: 14px; color: var(--text-muted); }
+    .gallery-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+    @media (max-width: 960px) { .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 600px) { .gallery-grid { grid-template-columns: minmax(0, 1fr); } }
     .gallery-item {
-      position: relative;
-      border-radius: 14px;
-      overflow: hidden;
-      border: 1px solid rgba(148,163,184,0.7);
-      background: #020617;
-      cursor: zoom-in;
-      transform: translateY(0);
+      position: relative; border-radius: 14px; overflow: hidden;
+      border: 1px solid rgba(148,163,184,0.7); background: #020617;
+      cursor: zoom-in; transform: translateY(0);
       transition: transform 0.1s ease-out, box-shadow 0.1s ease-out, border-color 0.1s ease-out;
     }
-
-    .gallery-item img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-
-    .gallery-item:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 16px 40px rgba(15,23,42,0.45);
-      border-color: #4f46e5;
-    }
-
+    .gallery-item img { display: block; width: 100%; height: auto; }
+    .gallery-item:hover { transform: translateY(-2px); box-shadow: 0 16px 40px rgba(15,23,42,0.45); border-color: #4f46e5; }
     .gallery-caption {
-      position: absolute;
-      left: 10px;
-      bottom: 8px;
-      padding: 4px 9px;
-      border-radius: 999px;
-      font-size: 11px;
-      color: #e5e7eb;
+      position: absolute; left: 10px; bottom: 8px; padding: 4px 9px; border-radius: 999px;
+      font-size: 11px; color: #e5e7eb;
       background: radial-gradient(circle at 0 0, rgba(15,23,42,0.6) 0, rgba(15,23,42,0.9) 60%);
-      border: 1px solid rgba(148,163,184,0.6);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
+      border: 1px solid rgba(148,163,184,0.6); display: inline-flex; align-items: center; gap: 6px;
     }
+    .gallery-caption-dot { width: 7px; height: 7px; border-radius: 999px; background: #22c55e; }
 
-    .gallery-caption-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: #22c55e;
-    }
-
+    /* ===== WAITLIST — redesigned for conversion ===== */
     .waitlist-section {
-      margin-top: 6px;
-      background: #ffffff;
-      border-radius: var(--radius-lg);
-      padding: 22px 22px 24px;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(148, 163, 184, 0.28);
+      background: #ffffff; border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft); border: 1px solid rgba(148, 163, 184, 0.28);
+      overflow: hidden;
     }
-
-    .waitlist-header {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      margin-bottom: 10px;
-      max-width: 560px;
+    .waitlist-banner {
+      background: linear-gradient(90deg, #635bff 0%, #1cc6ff 100%);
+      padding: 10px 22px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; flex-wrap: wrap;
     }
-
+    .waitlist-banner-left {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 13px; font-weight: 500; color: #ffffff;
+    }
+    .waitlist-banner-dot {
+      width: 8px; height: 8px; border-radius: 999px; background: #ffffff;
+      box-shadow: 0 0 0 4px rgba(255,255,255,0.25); flex-shrink: 0;
+    }
+    .waitlist-spots-badge {
+      background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 999px; padding: 2px 10px; font-size: 11px; font-weight: 600;
+      color: #ffffff; letter-spacing: 0.04em;
+    }
+    .waitlist-body {
+      display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 360px);
+    }
+    @media (max-width: 780px) {
+      .waitlist-body { grid-template-columns: minmax(0, 1fr); }
+      .waitlist-side { border-left: none !important; border-top: 1px solid rgba(148,163,184,0.2); }
+    }
+    .waitlist-main { padding: 28px 28px 30px; }
+    .waitlist-eyebrow {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--accent-primary); margin-bottom: 8px;
+    }
     .waitlist-title {
-      font-size: 18px;
-      font-weight: 600;
-      color: #0f172a;
+      font-size: clamp(20px, 3vw, 26px); font-weight: 700; color: #0f172a;
+      line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 10px;
     }
-
-    .waitlist-copy {
-      font-size: 14px;
-      color: var(--text-muted);
+    .waitlist-title em {
+      font-style: normal;
+      background: linear-gradient(90deg, #635bff, #1cc6ff);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     }
-
-    .waitlist-footnote {
-      font-size: 12px;
-      color: var(--text-muted);
-      margin-top: 8px;
+    .waitlist-copy { font-size: 14px; color: var(--text-muted); line-height: 1.55; margin-bottom: 20px; max-width: 440px; }
+    .waitlist-footnote { font-size: 11px; color: #9ca3af; margin-top: 10px; }
+    .legal-links { display: flex; flex-wrap: wrap; gap: 6px; font-size: 11px; margin-top: 4px; color: #9ca3af; }
+    .legal-links button { background: none; border: none; padding: 0; color: #635bff; cursor: pointer; font-size: 11px; }
+    .waitlist-side {
+      background: #f8fafc; border-left: 1px solid rgba(148,163,184,0.2);
+      padding: 28px 22px 30px; display: flex; flex-direction: column; gap: 20px;
     }
-
-    .legal-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      font-size: 12px;
-      margin-top: 6px;
-      color: #6b7280;
+    .waitlist-side-title {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: #94a3b8; margin-bottom: 12px;
     }
-
-    .legal-links button {
-      background: none;
-      border: none;
-      padding: 0;
-      color: #4f46e5;
-      cursor: pointer;
+    .waitlist-perks { display: flex; flex-direction: column; gap: 14px; }
+    .waitlist-perk { display: flex; gap: 12px; align-items: flex-start; }
+    .waitlist-perk-icon {
+      width: 32px; height: 32px; border-radius: 10px;
+      background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+      border: 1px solid rgba(99,91,255,0.2);
+      display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0;
     }
-
-    footer {
-      width: 100%;
-      border-top: 1px solid rgba(148, 163, 184, 0.5);
-      margin-top: auto;
-      background: rgba(248,250,252,0.9);
+    .waitlist-perk-label { font-size: 13px; font-weight: 600; color: #111827; margin-bottom: 2px; }
+    .waitlist-perk-desc { font-size: 12px; color: var(--text-muted); line-height: 1.45; }
+    .waitlist-side-divider { height: 1px; background: rgba(148,163,184,0.18); }
+    .cost-teaser {
+      background: linear-gradient(135deg, #020617 0%, #0f172a 100%);
+      border-radius: 12px; padding: 14px 16px; border: 1px solid rgba(99,91,255,0.3);
     }
+    .cost-teaser-label { font-size: 11px; color: #94a3b8; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.06em; }
+    .cost-teaser-row { display: flex; align-items: baseline; gap: 6px; margin-bottom: 4px; }
+    .cost-teaser-amount { font-size: 28px; font-weight: 700; color: #ffffff; letter-spacing: -0.03em; line-height: 1; }
+    .cost-teaser-period { font-size: 12px; color: #64748b; }
+    .cost-teaser-desc { font-size: 11px; color: #64748b; line-height: 1.4; }
+    .cost-teaser-highlight { color: #22c55e; font-weight: 600; }
+    /* ===== END WAITLIST ===== */
 
+    footer { width: 100%; border-top: 1px solid rgba(148, 163, 184, 0.5); margin-top: auto; background: rgba(248,250,252,0.9); }
     .footer-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 14px 20px 18px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      font-size: 11px;
-      color: var(--text-muted);
-      flex-wrap: wrap;
+      max-width: var(--max-width); margin: 0 auto; padding: 14px 20px 18px;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 12px; font-size: 11px; color: var(--text-muted); flex-wrap: wrap;
     }
-
-    .footer-links {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .footer-links button {
-      border: none;
-      background: none;
-      padding: 0;
-      font: inherit;
-      color: #4f46e5;
-      cursor: pointer;
-    }
-
-    /* Simple modal styles */
+    .footer-links { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .footer-links button { border: none; background: none; padding: 0; font: inherit; color: #4f46e5; cursor: pointer; }
     .modal-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(15,23,42,0.65);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-      z-index: 40;
+      position: fixed; inset: 0; background: rgba(15,23,42,0.65);
+      display: none; align-items: center; justify-content: center; padding: 16px; z-index: 40;
     }
-
     .modal {
-      max-width: 640px;
-      width: 100%;
-      background: #ffffff;
-      border-radius: 16px;
-      box-shadow: 0 30px 80px rgba(15, 23, 42, 0.7);
-      border: 1px solid rgba(148, 163, 184, 0.8);
-      max-height: 80vh;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
+      max-width: 640px; width: 100%; background: #ffffff; border-radius: 16px;
+      box-shadow: 0 30px 80px rgba(15, 23, 42, 0.7); border: 1px solid rgba(148, 163, 184, 0.8);
+      max-height: 80vh; display: flex; flex-direction: column; overflow: hidden;
     }
-
     .modal-header {
-      padding: 14px 18px 10px;
-      border-bottom: 1px solid #e5e7eb;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
+      padding: 14px 18px 10px; border-bottom: 1px solid #e5e7eb;
+      display: flex; align-items: center; justify-content: space-between; gap: 8px;
     }
-
-    .modal-title {
-      font-size: 15px;
-      font-weight: 600;
-      color: #0f172a;
-    }
-
-    .modal-close {
-      border: none;
-      background: none;
-      font-size: 16px;
-      cursor: pointer;
-      color: #6b7280;
-    }
-
-    .modal-body {
-      padding: 14px 18px 18px;
-      overflow-y: auto;
-      font-size: 13px;
-      color: #4b5563;
-    }
-
-    .modal-body h3 {
-      margin-top: 12px;
-      margin-bottom: 4px;
-      font-size: 13px;
-      font-weight: 600;
-      color: #111827;
-    }
-
-    .modal-body p {
-      margin-top: 4px;
-      margin-bottom: 8px;
-      line-height: 1.5;
-    }
-
-    .modal-body ul {
-      margin: 4px 0 8px 18px;
-      padding: 0;
-    }
-
-    .modal-body li {
-      margin-bottom: 4px;
-    }
-
-    .modal-backdrop.show {
-      display: flex;
-    }
-
-    /* Lightbox for gallery */
+    .modal-title { font-size: 15px; font-weight: 600; color: #0f172a; }
+    .modal-close { border: none; background: none; font-size: 16px; cursor: pointer; color: #6b7280; }
+    .modal-body { padding: 14px 18px 18px; overflow-y: auto; font-size: 13px; color: #4b5563; }
+    .modal-body h3 { margin-top: 12px; margin-bottom: 4px; font-size: 13px; font-weight: 600; color: #111827; }
+    .modal-body p { margin-top: 4px; margin-bottom: 8px; line-height: 1.5; }
+    .modal-body ul { margin: 4px 0 8px 18px; padding: 0; }
+    .modal-body li { margin-bottom: 4px; }
+    .modal-backdrop.show { display: flex; }
     .lightbox-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(15,23,42,0.9);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 50;
-      padding: 12px;
+      position: fixed; inset: 0; background: rgba(15,23,42,0.9);
+      display: none; align-items: center; justify-content: center; z-index: 50; padding: 12px;
     }
-
-    .lightbox-inner {
-      max-width: 1100px;
-      width: 100%;
-      max-height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: stretch;
-      gap: 8px;
-    }
-
-    .lightbox-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: #e5e7eb;
-      font-size: 13px;
-    }
-
-    .lightbox-header span {
-      opacity: 0.9;
-    }
-
-    .lightbox-close {
-      border: none;
-      background: none;
-      color: #e5e7eb;
-      font-size: 20px;
-      cursor: pointer;
-    }
-
+    .lightbox-inner { max-width: 1100px; width: 100%; max-height: 100%; display: flex; flex-direction: column; align-items: stretch; gap: 8px; }
+    .lightbox-header { display: flex; justify-content: space-between; align-items: center; color: #e5e7eb; font-size: 13px; }
+    .lightbox-header span { opacity: 0.9; }
+    .lightbox-close { border: none; background: none; color: #e5e7eb; font-size: 20px; cursor: pointer; }
     .lightbox-image-wrapper {
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid rgba(148,163,184,0.8);
-      background: #020617;
-      max-height: calc(100vh - 80px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      border-radius: 12px; overflow: hidden; border: 1px solid rgba(148,163,184,0.8);
+      background: #020617; max-height: calc(100vh - 80px); display: flex; align-items: center; justify-content: center;
     }
-
-    .lightbox-image-wrapper img {
-      width: 100%;
-      height: auto;
-      max-height: calc(100vh - 90px);
-      object-fit: contain;
-    }
-
-    .lightbox-backdrop.show {
-      display: flex;
-    }
-
+    .lightbox-image-wrapper img { width: 100%; height: auto; max-height: calc(100vh - 90px); object-fit: contain; }
+    .lightbox-backdrop.show { display: flex; }
     @media (max-width: 640px) {
-      .lightbox-inner {
-        gap: 6px;
-      }
-      .lightbox-image-wrapper img {
-        max-height: calc(100vh - 80px);
-      }
+      .lightbox-inner { gap: 6px; }
+      .lightbox-image-wrapper img { max-height: calc(100vh - 80px); }
     }
   </style>
 </head>
@@ -813,10 +328,8 @@
         </div>
       </div>
       <div class="header-cta">
-        <div class="pill">Private beta • Early access</div>
-        <button class="btn-outline" onclick="scrollToWaitlist()">
-          Join waitlist
-        </button>
+        <div class="pill">Private beta · Early access</div>
+        <button class="btn-outline" onclick="scrollToWaitlist()">Join waitlist</button>
       </div>
     </header>
 
@@ -828,16 +341,11 @@
             <span class="badge-dot"></span>
             <span>Keep your team on agenda, automatically</span>
           </div>
-
-          <h1 id="hero-title">
-            Turn every meeting<br />into measurable ROI.
-          </h1>
-
+          <h1 id="hero-title">Turn every meeting<br />into measurable ROI.</h1>
           <p class="hero-subtitle">
             RoyMeets is an AI meeting coach that keeps discussions on track, gently nudges you
             when topics drift, and shows the real cost—and savings—of every call.
           </p>
-
           <div class="hero-actions">
             <button class="btn-primary" onclick="scrollToDemo()">
               ▶ Watch the 1‑minute product demo
@@ -846,35 +354,15 @@
               Then leave your email below to join the private beta for product and engineering teams.
             </div>
           </div>
-
           <div class="hero-points" aria-label="Key benefits">
-            <div class="point">
-              <div class="point-icon">✓</div>
-              <span>Live on‑agenda / off‑agenda tracking</span>
-            </div>
-            <div class="point">
-              <div class="point-icon">⏱</div>
-              <span>Timeboxing per topic in real time</span>
-            </div>
-            <div class="point">
-              <div class="point-icon">💸</div>
-              <span>Meeting cost &amp; money saved widget</span>
-            </div>
-            <div class="point">
-              <div class="point-icon">📊</div>
-              <span>Weekly meeting analytics for teams</span>
-            </div>
-            <div class="point">
-              <div class="point-icon">🤝</div>
-              <span>Host cockpit &amp; light participant view</span>
-            </div>
-            <div class="point">
-              <div class="point-icon">✨</div>
-              <span>Smart post‑meeting recaps &amp; tips</span>
-            </div>
+            <div class="point"><div class="point-icon">✓</div><span>Live on‑agenda / off‑agenda tracking</span></div>
+            <div class="point"><div class="point-icon">⏱</div><span>Timeboxing per topic in real time</span></div>
+            <div class="point"><div class="point-icon">💸</div><span>Meeting cost &amp; money saved widget</span></div>
+            <div class="point"><div class="point-icon">📊</div><span>Weekly meeting analytics for teams</span></div>
+            <div class="point"><div class="point-icon">🤝</div><span>Host cockpit &amp; light participant view</span></div>
+            <div class="point"><div class="point-icon">✨</div><span>Smart post‑meeting recaps &amp; tips</span></div>
           </div>
         </div>
-
         <div class="hero-right" id="demo">
           <div class="video-card">
             <div class="video-header">
@@ -885,7 +373,6 @@
               <div class="video-meta">Prototype UI · AI meeting assistant</div>
             </div>
             <div class="video-wrapper">
-              <!-- Vimeo embed -->
               <div style="padding:56.25% 0 0 0;position:relative;">
                 <iframe
                   src="https://player.vimeo.com/video/1197693471?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
@@ -906,161 +393,161 @@
       <section class="how-section" aria-labelledby="how-title">
         <div class="how-header">
           <div class="how-title" id="how-title">How RoyMeets works</div>
-          <div class="how-copy">
-            A lightweight AI layer that sits on top of your existing video calls.
-            No new workflow to learn—just better meetings.
-          </div>
+          <div class="how-copy">A lightweight AI layer that sits on top of your existing video calls. No new workflow to learn—just better meetings.</div>
         </div>
-
         <div class="how-steps">
           <div class="how-step">
             <div class="how-step-header">
               <div class="how-step-index">1</div>
               <div class="how-step-title">Join your meetings</div>
             </div>
-            <div class="how-step-body">
-              Connect RoyMeets to your calendar and invite it to recurring team calls.
-              It watches the agenda, speakers and timing in real time.
-            </div>
-            <div class="how-step-tags">
-              <span class="how-tag">Google Meet</span>
-              <span class="how-tag">Agenda import</span>
-            </div>
+            <div class="how-step-body">Connect RoyMeets to your calendar and invite it to recurring team calls. It watches the agenda, speakers and timing in real time.</div>
+            <div class="how-step-tags"><span class="how-tag">Google Meet</span><span class="how-tag">Agenda import</span></div>
           </div>
-
           <div class="how-step">
             <div class="how-step-header">
               <div class="how-step-index">2</div>
               <div class="how-step-title">Keep topics on track</div>
             </div>
-            <div class="how-step-body">
-              When a topic drifts or runs long, RoyMeets sends gentle nudges and re‑balances
-              time so you finish the agenda instead of overrunning.
-            </div>
-            <div class="how-step-tags">
-              <span class="how-tag">Soft nudges</span>
-              <span class="how-tag">Host controls</span>
-            </div>
+            <div class="how-step-body">When a topic drifts or runs long, RoyMeets sends gentle nudges and re‑balances time so you finish the agenda instead of overrunning.</div>
+            <div class="how-step-tags"><span class="how-tag">Soft nudges</span><span class="how-tag">Host controls</span></div>
           </div>
-
           <div class="how-step">
             <div class="how-step-header">
               <div class="how-step-index">3</div>
               <div class="how-step-title">See the ROI</div>
             </div>
-            <div class="how-step-body">
-              After each call, you get a recap, on‑agenda score, and the estimated cost
-              and savings. Weekly analytics show which meetings to shorten or redesign.
-            </div>
-            <div class="how-step-tags">
-              <span class="how-tag">Meeting score</span>
-              <span class="how-tag">Cost analytics</span>
-            </div>
+            <div class="how-step-body">After each call, you get a recap, on‑agenda score, and the estimated cost and savings. Weekly analytics show which meetings to shorten or redesign.</div>
+            <div class="how-step-tags"><span class="how-tag">Meeting score</span><span class="how-tag">Cost analytics</span></div>
           </div>
         </div>
       </section>
 
-      <!-- PRODUCT SCREENS GALLERY -->
+      <!-- GALLERY -->
       <section class="gallery-section" aria-labelledby="gallery-title">
         <div class="gallery-header">
           <div class="gallery-title" id="gallery-title">Product screens</div>
-          <div class="gallery-copy">
-            A closer look at how RoyMeets shows up inside your meetings and analytics.
-            These are the same screens used in the 1‑minute demo.
-          </div>
+          <div class="gallery-copy">A closer look at how RoyMeets shows up inside your meetings and analytics. These are the same screens used in the 1‑minute demo.</div>
         </div>
-
         <div class="gallery-grid">
           <div class="gallery-item" data-image="frame1.png" data-label="Frame 1 · Meeting start">
             <img src="frame1.png" alt="Meeting start with agenda visible" loading="lazy" />
-            <div class="gallery-caption">
-              <span class="gallery-caption-dot"></span>
-              <span>Frame 1 · Meeting start</span>
-            </div>
+            <div class="gallery-caption"><span class="gallery-caption-dot"></span><span>Frame 1 · Meeting start</span></div>
           </div>
-
           <div class="gallery-item" data-image="frame2.png" data-label="Frame 2 · Off‑agenda nudge">
             <img src="frame2.png" alt="Off‑agenda moment with AI nudge" loading="lazy" />
-            <div class="gallery-caption">
-              <span class="gallery-caption-dot"></span>
-              <span>Frame 2 · Off‑agenda nudge</span>
-            </div>
+            <div class="gallery-caption"><span class="gallery-caption-dot"></span><span>Frame 2 · Off‑agenda nudge</span></div>
           </div>
-
           <div class="gallery-item" data-image="frame3.png" data-label="Frame 3 · Back on track">
             <img src="frame3.png" alt="Back on track and time re‑balanced" loading="lazy" />
-            <div class="gallery-caption">
-              <span class="gallery-caption-dot"></span>
-              <span>Frame 3 · Back on track</span>
-            </div>
+            <div class="gallery-caption"><span class="gallery-caption-dot"></span><span>Frame 3 · Back on track</span></div>
           </div>
-
           <div class="gallery-item" data-image="frame4.png" data-label="Frame 4 · Analytics & ROI">
             <img src="frame4.png" alt="Analytics view with on‑agenda time and ROI" loading="lazy" />
-            <div class="gallery-caption">
-              <span class="gallery-caption-dot"></span>
-              <span>Frame 4 · Analytics & ROI</span>
-            </div>
+            <div class="gallery-caption"><span class="gallery-caption-dot"></span><span>Frame 4 · Analytics & ROI</span></div>
           </div>
         </div>
       </section>
 
-      <!-- WAITLIST SECTION -->
-      <section class="waitlist-section" id="waitlist">
-        <div class="waitlist-header">
-          <div class="waitlist-title">Request early access</div>
-          <div class="waitlist-copy">
-            We’re inviting a small group of teams to try RoyMeets while we refine the product.
-            Add your email to hear when slots open and to share how you run meetings today.
+      <!-- WAITLIST — conversion-optimised -->
+      <section class="waitlist-section" id="waitlist" aria-labelledby="waitlist-title">
+
+        <!-- Urgency banner -->
+        <div class="waitlist-banner">
+          <div class="waitlist-banner-left">
+            <span class="waitlist-banner-dot"></span>
+            <span>Private beta — limited to 50 teams &nbsp;·&nbsp; Free while in beta</span>
           </div>
+          <span class="waitlist-spots-badge">🔒 Spots filling</span>
         </div>
 
-        <!-- Tally embed -->
-        <iframe
-          data-tally-src="https://tally.so/embed/ODkKVa?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-          loading="lazy"
-          width="100%"
-          height="211"
-          frameborder="0"
-          marginheight="0"
-          marginwidth="0"
-          title="Early Access">
-        </iframe>
+        <div class="waitlist-body">
 
-        <div class="waitlist-footnote">
-          We’ll only use your email to contact you about RoyMeets and the beta. You can opt out anytime.
+          <!-- Left: headline + Tally form -->
+          <div class="waitlist-main">
+            <div class="waitlist-eyebrow">Early access</div>
+            <div class="waitlist-title" id="waitlist-title">
+              Stop losing <em>€3,000/week</em><br />to off-agenda meetings.
+            </div>
+            <p class="waitlist-copy">
+              Join the beta and get a free ROI estimate for your team in week 1.
+              We're letting in small cohorts of product &amp; engineering teams — tell us
+              how your team meets and we'll reach out with your invite.
+            </p>
+
+            <iframe
+              data-tally-src="https://tally.so/embed/ODkKVa?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+              loading="lazy"
+              width="100%"
+              height="220"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+              title="Claim your beta spot">
+            </iframe>
+
+            <div class="waitlist-footnote">We'll only use your email to contact you about RoyMeets. Opt out anytime.</div>
+            <div class="legal-links">
+              <span>By joining you agree to our</span>
+              <button type="button" onclick="openModal('tos-modal')">Terms of Service</button>
+              <span>and</span>
+              <button type="button" onclick="openModal('privacy-modal')">Privacy Policy</button>.
+            </div>
+          </div>
+
+          <!-- Right: perks + cost widget -->
+          <div class="waitlist-side">
+            <div>
+              <div class="waitlist-side-title">What beta members get</div>
+              <div class="waitlist-perks">
+                <div class="waitlist-perk">
+                  <div class="waitlist-perk-icon">🎯</div>
+                  <div>
+                    <div class="waitlist-perk-label">Free beta access</div>
+                    <div class="waitlist-perk-desc">Full product, no cost during the beta period.</div>
+                  </div>
+                </div>
+                <div class="waitlist-perk">
+                  <div class="waitlist-perk-icon">📊</div>
+                  <div>
+                    <div class="waitlist-perk-label">Free ROI analysis</div>
+                    <div class="waitlist-perk-desc">We'll calculate your team's weekly meeting cost in week 1.</div>
+                  </div>
+                </div>
+                <div class="waitlist-perk">
+                  <div class="waitlist-perk-icon">🛠️</div>
+                  <div>
+                    <div class="waitlist-perk-label">Direct founder access</div>
+                    <div class="waitlist-perk-desc">Shape the product — your feedback goes straight to the team.</div>
+                  </div>
+                </div>
+                <div class="waitlist-perk">
+                  <div class="waitlist-perk-icon">💰</div>
+                  <div>
+                    <div class="waitlist-perk-label">Beta pricing lock</div>
+                    <div class="waitlist-perk-desc">Beta members keep a discounted rate when we launch paid plans.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="waitlist-side-divider"></div>
+
+            <div class="cost-teaser">
+              <div class="cost-teaser-label">Avg. team of 8 · 5 meetings/week</div>
+              <div class="cost-teaser-row">
+                <div class="cost-teaser-amount">€2,840</div>
+                <div class="cost-teaser-period">/ week in meetings</div>
+              </div>
+              <div class="cost-teaser-desc">
+                ~30% is off-agenda time. That's
+                <span class="cost-teaser-highlight">€852 recovered</span>
+                every week with RoyMeets.
+              </div>
+            </div>
+          </div>
+
         </div>
-
-        <div class="legal-links">
-          <span>By joining the waitlist you agree to our</span>
-          <button type="button" onclick="openModal('tos-modal')">Terms of Service</button>
-          <span>and</span>
-          <button type="button" onclick="openModal('privacy-modal')">Privacy Policy</button>.
-        </div>
-
-        <script>
-          (function() {
-            var d = document,
-              w = "https://tally.so/widgets/embed.js",
-              v = function() {
-                if (typeof Tally !== "undefined") {
-                  Tally.loadEmbeds();
-                } else {
-                  d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function(e) {
-                    e.src = e.dataset.tallySrc;
-                  });
-                }
-              };
-            if (typeof Tally !== "undefined") v();
-            else if (d.querySelector('script[src="' + w + '"]') == null) {
-              var s = d.createElement("script");
-              s.src = w;
-              s.onload = v;
-              s.onerror = v;
-              d.body.appendChild(s);
-            }
-          })();
-        </script>
       </section>
     </main>
   </div>
@@ -1084,49 +571,19 @@
         <button class="modal-close" type="button" aria-label="Close" onclick="closeModal('tos-modal')">×</button>
       </div>
       <div class="modal-body">
-        <p>
-          These Terms of Service set out the basic rules for using this website and any related
-          pre‑release services made available through it. By accessing the site or joining the waitlist,
-          you agree to these terms.
-        </p>
-
+        <p>These Terms of Service set out the basic rules for using this website and any related pre‑release services made available through it. By accessing the site or joining the waitlist, you agree to these terms.</p>
         <h3>Beta status</h3>
-        <p>
-          RoyMeets is currently offered as a limited, pre‑release product for evaluation purposes only.
-          Features may change, break, or be discontinued at any time without notice.
-        </p>
-
+        <p>RoyMeets is currently offered as a limited, pre‑release product for evaluation purposes only. Features may change, break, or be discontinued at any time without notice.</p>
         <h3>Use at your own risk</h3>
-        <p>
-          You are responsible for how you use the information and insights provided by RoyMeets.
-          The service is offered “as is” without guarantees of accuracy, availability, or fitness for
-          a particular purpose.
-        </p>
-
+        <p>You are responsible for how you use the information and insights provided by RoyMeets. The service is offered "as is" without guarantees of accuracy, availability, or fitness for a particular purpose.</p>
         <h3>Accounts and access</h3>
-        <p>
-          If we invite you to the beta, you are responsible for keeping any login credentials
-          confidential and for all activity that takes place under your account.
-        </p>
-
+        <p>If we invite you to the beta, you are responsible for keeping any login credentials confidential and for all activity that takes place under your account.</p>
         <h3>Acceptable use</h3>
-        <p>
-          You agree not to misuse the service, interfere with its normal operation, attempt to gain
-          unauthorized access, or use it to violate applicable laws or the privacy of others.
-        </p>
-
+        <p>You agree not to misuse the service, interfere with its normal operation, attempt to gain unauthorized access, or use it to violate applicable laws or the privacy of others.</p>
         <h3>Intellectual property</h3>
-        <p>
-          All product designs, user interfaces, text, graphics, and other content on this site are
-          protected by intellectual property rights and may not be copied, modified, or redistributed
-          without prior permission.
-        </p>
-
+        <p>All product designs, user interfaces, text, graphics, and other content on this site are protected by intellectual property rights and may not be copied, modified, or redistributed without prior permission.</p>
         <h3>Changes</h3>
-        <p>
-          These terms may be updated from time to time. Continued use of the site after changes are
-          posted means you accept the revised terms.
-        </p>
+        <p>These terms may be updated from time to time. Continued use of the site after changes are posted means you accept the revised terms.</p>
       </div>
     </div>
   </div>
@@ -1139,54 +596,31 @@
         <button class="modal-close" type="button" aria-label="Close" onclick="closeModal('privacy-modal')">×</button>
       </div>
       <div class="modal-body">
-        <p>
-          This Privacy Policy explains, in a general way, how information is collected and used when
-          you visit this website or submit your details to join the early access waitlist.
-        </p>
-
+        <p>This Privacy Policy explains, in a general way, how information is collected and used when you visit this website or submit your details to join the early access waitlist.</p>
         <h3>Information we collect</h3>
         <ul>
           <li>Contact details you provide, such as your email address and optional role or company.</li>
-          <li>Basic usage information about how you interact with this site (for example, pages viewed or forms submitted).</li>
+          <li>Basic usage information about how you interact with this site.</li>
         </ul>
-
         <h3>How we use your information</h3>
         <ul>
           <li>To contact you about RoyMeets, including beta invitations and product updates.</li>
           <li>To understand interest in the product and improve the experience.</li>
           <li>To maintain the security and reliability of the website.</li>
         </ul>
-
         <h3>Data sharing</h3>
-        <p>
-          We do not sell your personal information. Limited third‑party services may process data
-          on our behalf for things like form submissions, analytics, or video hosting, under their
-          own privacy terms.
-        </p>
-
+        <p>We do not sell your personal information. Limited third‑party services may process data on our behalf for things like form submissions, analytics, or video hosting, under their own privacy terms.</p>
         <h3>Retention</h3>
-        <p>
-          Contact details are kept for as long as they are needed to operate the waitlist and beta,
-          or until you ask for them to be removed.
-        </p>
-
+        <p>Contact details are kept for as long as they are needed to operate the waitlist and beta, or until you ask for them to be removed.</p>
         <h3>Your choices</h3>
-        <p>
-          You can opt out of communications at any time by following the instructions in our emails
-          or by contacting us directly. You may also request that we delete your contact details
-          from the waitlist.
-        </p>
-
+        <p>You can opt out of communications at any time by following the instructions in our emails or by contacting us directly.</p>
         <h3>Updates</h3>
-        <p>
-          This policy may be updated occasionally to reflect changes in how the site or service
-          operates. We encourage you to review it from time to time.
-        </p>
+        <p>This policy may be updated occasionally. We encourage you to review it from time to time.</p>
       </div>
     </div>
   </div>
 
-  <!-- LIGHTBOX FOR GALLERY -->
+  <!-- LIGHTBOX -->
   <div class="lightbox-backdrop" id="lightbox">
     <div class="lightbox-inner">
       <div class="lightbox-header">
@@ -1200,73 +634,55 @@
   </div>
 
   <script>
-    // Dynamic year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    function scrollToDemo() {
-      document.getElementById("demo").scrollIntoView({ behavior: "smooth" });
-    }
+    function scrollToDemo() { document.getElementById("demo").scrollIntoView({ behavior: "smooth" }); }
+    function scrollToWaitlist() { document.getElementById("waitlist").scrollIntoView({ behavior: "smooth" }); }
+    function openModal(id) { document.getElementById(id).classList.add("show"); }
+    function closeModal(id) { document.getElementById(id).classList.remove("show"); }
 
-    function scrollToWaitlist() {
-      document.getElementById("waitlist").scrollIntoView({ behavior: "smooth" });
-    }
-
-    function openModal(id) {
-      document.getElementById(id).classList.add("show");
-    }
-
-    function closeModal(id) {
-      document.getElementById(id).classList.remove("show");
-    }
-
-    // Close modal on backdrop click
-    document.querySelectorAll(".modal-backdrop").forEach(function (backdrop) {
-      backdrop.addEventListener("click", function (e) {
-        if (e.target === backdrop) {
-          backdrop.classList.remove("show");
-        }
+    document.querySelectorAll(".modal-backdrop").forEach(function(backdrop) {
+      backdrop.addEventListener("click", function(e) {
+        if (e.target === backdrop) backdrop.classList.remove("show");
       });
     });
 
-    // Lightbox logic
     const lightbox = document.getElementById("lightbox");
     const lightboxImage = document.getElementById("lightbox-image");
     const lightboxLabel = document.getElementById("lightbox-label");
 
-    document.querySelectorAll(".gallery-item").forEach(function (item) {
-      item.addEventListener("click", function () {
-        const src = item.getAttribute("data-image");
-        const label = item.getAttribute("data-label") || "";
-        lightboxImage.src = src;
-        lightboxImage.alt = label;
-        lightboxLabel.textContent = label;
+    document.querySelectorAll(".gallery-item").forEach(function(item) {
+      item.addEventListener("click", function() {
+        lightboxImage.src = item.getAttribute("data-image");
+        lightboxImage.alt = item.getAttribute("data-label") || "";
+        lightboxLabel.textContent = item.getAttribute("data-label") || "";
         lightbox.classList.add("show");
       });
     });
 
-    function closeLightbox() {
-      lightbox.classList.remove("show");
-      lightboxImage.src = "";
-    }
+    function closeLightbox() { lightbox.classList.remove("show"); lightboxImage.src = ""; }
 
-    // Close lightbox on backdrop click
-    lightbox.addEventListener("click", function (e) {
-      if (e.target === lightbox) {
-        closeLightbox();
-      }
-    });
+    lightbox.addEventListener("click", function(e) { if (e.target === lightbox) closeLightbox(); });
 
-    // Close modals & lightbox on Escape
-    document.addEventListener("keydown", function (e) {
+    document.addEventListener("keydown", function(e) {
       if (e.key === "Escape") {
-        document.querySelectorAll(".modal-backdrop.show").forEach(function (m) {
-          m.classList.remove("show");
-        });
-        if (lightbox.classList.contains("show")) {
-          closeLightbox();
-        }
+        document.querySelectorAll(".modal-backdrop.show").forEach(function(m) { m.classList.remove("show"); });
+        if (lightbox.classList.contains("show")) closeLightbox();
       }
     });
+
+    // Tally embed
+    (function() {
+      var d = document, w = "https://tally.so/widgets/embed.js",
+        v = function() {
+          if (typeof Tally !== "undefined") { Tally.loadEmbeds(); }
+          else { d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function(e) { e.src = e.dataset.tallySrc; }); }
+        };
+      if (typeof Tally !== "undefined") v();
+      else if (d.querySelector('script[src="' + w + '"]') == null) {
+        var s = d.createElement("script"); s.src = w; s.onload = v; s.onerror = v; d.body.appendChild(s);
+      }
+    })();
   </script>
 </body>
 </html>
